@@ -3,6 +3,7 @@ frameworkVersion: "3"
 
 provider:
   name: aws
+  region: us-east-1
   runtime: python3.9
 
 constructs:
@@ -10,21 +11,6 @@ constructs:
     type: queue
     worker:
       handler: handler.consumer
-
-functions:
-  consumer:
-    handler: handler.consumer
-    destinations:
-      onSuccess:
-        arn:
-          Fn::GetAtt: [TransferProcessedTopic, Arn]
-
-resources:
-  Resources:
-    TransferProcessedTopic:
-      Type: AWS::SNS::Topic
-      Properties:
-        TopicName: succeded-transfer-orders
 
 plugins:
   - serverless-lift
