@@ -1,0 +1,21 @@
+service: aws-python-sqs-worker-project
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.9
+
+constructs:
+  jobs:
+    type: queue
+    worker:
+      handler: handler.consumer
+
+plugins:
+  - serverless-lift
+  - serverless-python-requirements
+
+package:
+  patterns:
+    - "!node_modules/**"
