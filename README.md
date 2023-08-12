@@ -11,7 +11,7 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
-# Serverless Framework Python SQS Producer-Consumer on AWS
+# aws-python-sqs-worker-project
 
 This template demonstrates how to develop and deploy a simple SQS-based producer-consumer service running on AWS Lambda using the Serverless Framework and the [Lift](https://github.com/getlift/lift) plugin. It allows to accept messages, for which computation might be time or resource intensive, and offload their processing to an asynchronous background process for a faster and more resilient system.
 
@@ -79,3 +79,4 @@ serverless plugin install -n serverless-python-requirements
 ```
 
 Running the above will automatically add `serverless-python-requirements` to `plugins` section in your `serverless.yml` file and add it as a `devDependency` to `package.json` file. The `package.json` file will be automatically created if it doesn't exist beforehand. Now you will be able to add your dependencies to `requirements.txt` file (`Pipfile` and `pyproject.toml` is also supported but requires additional configuration) and they will be automatically injected to Lambda package during build process. For more details about the plugin's configuration, please refer to [official documentation](https://github.com/UnitedIncome/serverless-python-requirements).
+
